@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <style>
         body {
-            background-color: #ffffff;
-            /* White background */
+            background-image: url(https://cdn1.epicgames.com/ue/product/Screenshot/Screenshot05-1920x1080-0f4d271d3f5c217a2a06977d706debf1.jpg?resize=1&w=1920);
+            background-repeat: no-repeat;
+            background-size: cover;
             font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
@@ -120,8 +121,8 @@
             </div>
             <div class="form-group">
                 <label for="suhu">Suhu Tubuh (°C):</label>
-                <input type="number" id="suhu" name="suhu" class="form-control" min="0" max="60" value="{{ $destination['suhu'] }}"
-                    required>
+                <input type="number" id="suhu" name="suhu" class="form-control" min="0" max="60"
+                    value="{{ $destination['suhu'] }}" required>
             </div>
             <button type="submit" class="btn">Update</button>
         </form>

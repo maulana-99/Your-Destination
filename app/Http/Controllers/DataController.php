@@ -24,6 +24,11 @@ class DataController extends Controller
             });
         }
 
+        // Mengurutkan data berdasarkan ID
+        usort($data, function ($a, $b) {
+            return $a['id'] <=> $b['id'];
+        });
+
         // Debugging: Log the data
         \Log::info('Data sent to view:', $data);
 
@@ -106,7 +111,7 @@ class DataController extends Controller
         $destination['tanggal'] = $request->tanggal;
         $destination['waktu'] = $request->waktu;
         $destination['nama_tempat'] = $request->nama_tempat;
-        $destination['suhu'] = $request->suhu ;
+        $destination['suhu'] = $request->suhu;
 
         $this->updateDestinationToFile($destination);
 
@@ -119,34 +124,34 @@ class DataController extends Controller
         if (!$userId) {
             return redirect()->route('login')->withErrors(['login' => 'You must be logged in to delete a destination.']);
         }
-    
+
         $file = storage_path('app/users.txt');
         $lines = file($file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
         $newContent = [];
         $destinasiSection = false;
-    
+
         foreach ($lines as $line) {
             if (trim($line) == '[DESTINASI]') {
                 $destinasiSection = true;
                 $newContent[] = $line;
                 continue;
             }
-    
+
             if ($destinasiSection) {
                 list($entryId, $entryUserId) = explode(',', $line, 3);
                 if ($entryId == $id && $entryUserId == $userId) {
                     continue; // Skip this line to delete it
                 }
             }
-    
+
             $newContent[] = $line;
         }
-    
+
         file_put_contents($file, implode(PHP_EOL, $newContent) . PHP_EOL);
-    
+
         return redirect()->route('data.index')->with('success', 'Destination deleted successfully.');
     }
-    
+
 
 
     public function print(Request $request)

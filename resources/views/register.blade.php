@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,9 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <style>
         body {
-            background-color: #ffffff; /* White background */
+            background-image: url(https://cdn1.epicgames.com/ue/product/Screenshot/Screenshot05-1920x1080-0f4d271d3f5c217a2a06977d706debf1.jpg?resize=1&w=1920);
+            background-repeat: no-repeat;
+            background-size: cover;
             font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
@@ -15,56 +18,76 @@
             height: 100vh;
             margin: 0;
         }
+
         .container {
-            background-color: #ffffff; /* White background */
+            background-color: #ffffff;
+            /* White background */
             padding: 40px;
             width: 300px;
-            border: 2px solid #000000; /* Black border */
-            box-shadow: 5px 5px 0 0 #000000; /* Black shadow */
+            border: 2px solid #000000;
+            /* Black border */
+            box-shadow: 5px 5px 0 0 #000000;
+            /* Black shadow */
         }
+
         h1 {
             margin-bottom: 20px;
             text-align: center;
         }
+
         .form-group {
             margin-bottom: 15px;
         }
+
         .form-group input {
             width: 100%;
             padding: 10px;
             margin-top: 5px;
-            border: 1px solid #000000; /* Black border */
-            box-sizing: border-box; /* Include padding and border in width */
+            border: 1px solid #000000;
+            /* Black border */
+            box-sizing: border-box;
+            /* Include padding and border in width */
         }
+
         button {
             width: 100%;
             padding: 10px;
-            background-color: #FFD700; /* Gold background */
+            background-color: #FFD700;
+            /* Gold background */
             border: none;
-            color: #000000; /* Black text */
+            color: #000000;
+            /* Black text */
             margin-top: 20px;
             cursor: pointer;
         }
+
         button:hover {
-            background-color: #FFC107; /* Darker gold background */
+            background-color: #FFC107;
+            /* Darker gold background */
         }
+
         .login-link {
             display: block;
             text-align: center;
             margin-top: 20px;
-            color: #000000; /* Black text */
+            color: #000000;
+            /* Black text */
             text-decoration: none;
             font-weight: bold;
         }
+
         .login-link:hover {
             text-decoration: underline;
         }
+
         .error-messages {
-            color: #FF0000; /* Red color for errors */
+            color: #FF0000;
+            /* Red color for errors */
             margin-bottom: 15px;
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>Make a new user</h1>
@@ -90,4 +113,5 @@
         <a href="{{ route('login') }}" class="login-link">Are you a old user?</a>
     </div>
 </body>
+
 </html>

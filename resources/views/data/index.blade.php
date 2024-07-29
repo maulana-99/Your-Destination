@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <style>
         body {
-            background-color: #ffffff;
+            background-image: url(https://cdn1.epicgames.com/ue/product/Screenshot/Screenshot05-1920x1080-0f4d271d3f5c217a2a06977d706debf1.jpg?resize=1&w=1920);
+            background-repeat: no-repeat;
+            background-size: cover;
             /* White background */
             font-family: Arial, sans-serif;
             display: flex;
@@ -148,6 +150,7 @@
         <table class="table">
             <thead>
                 <tr>
+                    <!-- <th>No</th> -->
                     <th>ID</th>
                     <th>Tanggal</th>
                     <th>Waktu</th>
@@ -160,6 +163,7 @@
                 @forelse ($data as $entry)
                     @if(isset($entry['id']))
                         <tr>
+                            <!-- <td>{{ $loop->iteration }}</td> -->
                             <td>{{ $entry['id'] }}</td>
                             <td>{{ $entry['tanggal'] }}</td>
                             <td>{{ $entry['waktu'] }}</td>
@@ -168,7 +172,7 @@
                             <td>
                                 <a href="{{ route('data.edit', $entry['id']) }}" class="btn btn-primary">Edit</a>
                                 <form action="{{ route('data.delete', $entry['id']) }}" method="POST"
-                                    onsubmit="return confirm('Apakah Anda yakin ingin menghapus fasilitas ini?');"
+                                    onsubmit="return confirm('Apakah Anda yakin ingin menghapus data ini?');"
                                     style="display:inline;">
                                     @csrf
                                     @method('DELETE')
